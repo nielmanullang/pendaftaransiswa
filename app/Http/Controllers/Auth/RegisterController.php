@@ -6,6 +6,7 @@ use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -48,9 +49,18 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name'     => 'required|max:255',
-            'email'    => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'namalengkap'     => 'required|max:255',
+            'username'     => 'alpha_dash|required|max:255|unique:users',
+            'jeniskelamin'    => 'required',
+            'tempatlahir'    => 'required',
+            'tanggallahir' => 'required',
+            'alamat' => 'required',
+            'notelpon' => 'required|min:6|unique:users',
+            'asalsekolah' => 'required|max:255',
+            'nisn' => 'required|min:10|max:10|unique:users',
+            'niksiswa' => 'required|min:16|max:16|unique:users',
+            'nikayah' => 'required|min:16|max:16|unique:users',
+            'nikibu' => 'required|min:16|max:16|unique:users',
         ]);
     }
 
@@ -62,10 +72,36 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $generateRandomString = $this->generateRandomString();
+        $password = bcrypt($data['nisn'].''.$generateRandomString);
         return User::create([
-            'name'     => $data['name'],
-            'email'    => $data['email'],
-            'password' => bcrypt($data['password']),
+            'namalengkap'     => $data['namalengkap'],
+            'username'     => $data['username'],
+            'jeniskelamin'    => $data['jeniskelamin'],
+            'tempatlahir'    => $data['tempatlahir'],
+            'tanggallahir'    => $data['tanggallahir'],
+            'alamat'    => $data['alamat'],
+            'notelpon'    => $data['notelpon'],
+            'nisn'    => $data['nisn'],
+            'niksiswa'    => $data['niksiswa'],
+            'nikayah'    => $data['nikayah'],
+            'nikibu'    => $data['nikibu'],
+            'password' => $password,
+            'random_string' => $generateRandomString,
         ]);
+    }
+
+    public function showRegistrationForm()
+    {
+        return view('auth.register');
+    }
+
+    public function register(Request $request)
+    {   
+        $this->validator($request->all())->validate();
+        $user = $this->create($request->all());
+
+        // return view('auth.success_register');
+        return view('auth.success_register',['user'=>$user]);
     }
 }

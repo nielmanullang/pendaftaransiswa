@@ -26,9 +26,10 @@ $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('auth.password.email');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.password.reset');
 
-
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'web'], function () {
     Route::get('/home', 'HomeController@index');
+});
+Route::group(['middleware' => 'auth'], function () {
     Route::resource('tests', 'TestsController');
     Route::resource('roles', 'RolesController');
     Route::post('roles_mass_destroy', ['uses' => 'RolesController@massDestroy', 'as' => 'roles.mass_destroy']);

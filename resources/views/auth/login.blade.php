@@ -29,13 +29,13 @@
                                value="{{ csrf_token() }}">
 
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Email</label>
+                            <label class="col-md-4 control-label">No.Telpon</label>
 
                             <div class="col-md-6">
-                                <input type="email"
+                                <input type="number"
                                        class="form-control"
-                                       name="email"
-                                       value="{{ old('email') }}">
+                                       name="identity"
+                                       value="{{ old('identity') }}">
                             </div>
                         </div>
 
@@ -49,14 +49,14 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <label>
                                     <input type="checkbox"
                                            name="remember">Remember me
                                 </label>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
@@ -69,9 +69,9 @@
                                     Register
                                 </a>
                                 <br>
-                                <a href="{{ route('auth.password.reset') }}">Forgot password</a>
-                                <br>
-                                <br>
+                                <!-- <a href="{{ route('auth.password.reset') }}">Forgot password</a> -->
+                                <!-- <br> -->
+                                <!-- <br> -->
                                 <!-- Or login with:
                                 <br>
                                 <a href="{{ route('oauth2google') }}"

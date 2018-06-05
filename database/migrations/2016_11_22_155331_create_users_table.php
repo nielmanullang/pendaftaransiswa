@@ -14,10 +14,18 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email');
+            $table->string('namalengkap')->nullable();
+            $table->string('username')->nullable();
+            $table->string('jeniskelamin')->nullable();
+            $table->date('tempatlahir')->nullable();
+            $table->string('tanggallahir')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('notelpon')->nullable();
+            $table->string('nisn')->nullable();
+            $table->string('niksiswa')->nullable();
+            $table->string('nikayah')->nullable();
+            $table->string('nikibu')->nullable();
             $table->string('password')->nullable();
-            $table->integer('role_id')->unsigned()->nullable();
             $table->foreign('role_id', 'fk_253_role_role_id_user')->references('id')->on('roles');
             $table->string('remember_token')->nullable();
 

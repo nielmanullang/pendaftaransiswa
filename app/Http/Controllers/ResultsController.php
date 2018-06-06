@@ -22,14 +22,28 @@ class ResultsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $results = Test::all()->load('user');
+    {   
+        if (Auth::user()->isAdmin()) {
+            $data = Test::all()->load('user');
+            $results = [];
+            foreach ($data as $key => $value) {
+                $datas['count'] = TestAnswer::where('user_id', $value->user_id)->count('test_id');
+                $datas['result'] = $value->result;
 
-        if (!Auth::user()->isAdmin()) {
-            $results = $results->where('user_id', '=', Auth::id());
+                $datas['nisn'] = $value->user->nisn;
+                $datas['namalengkap'] = $value->user->namalengkap;
+                $datas['id'] = $value->id;
+                $datas['user_id'] = $value->user_id;
+                $datas['created_at'] = $value->created_at;
+
+                $results[] = $datas;
+            }
+            return view('results.indexs', compact('results'));
+        }else{
+            $results = Test::where('user_id', Auth::id())->first();
+            $count = TestAnswer::where('user_id', Auth::id())->count('test_id');
+            return view('results.index', compact('results', 'count'));
         }
-
-        return view('results.index', compact('results'));
     }
 
     /**
@@ -48,8 +62,9 @@ class ResultsController extends Controller
                 ->with('question.options')
                 ->get()
             ;
+            $count = TestAnswer::where('test_id', $id)->count('test_id');
         }
 
-        return view('results.show', compact('test', 'results'));
+        return view('results.show', compact('test', 'results', 'count'));
     }
 }

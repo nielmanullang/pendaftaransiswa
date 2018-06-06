@@ -25,7 +25,8 @@ class TestsController extends Controller
         $user_id = Auth::id();
         $test_answer = TestAnswer::where('user_id', $user_id)->first();
         if($test_answer){
-            return redirect()->to('/')->withErrors(['message', 'Anda sudah pernah mengerjakan quiz']);
+            return redirect('results');
+            // return redirect()->to('/')->withErrors(['message', 'Anda sudah pernah mengerjakan quiz']);
             // return Redirect::back()->withErrors(['message', 'Anda sudah pernah mengerjakan quiz']);
         }
         // $topics = Topic::inRandomOrder()->limit(10)->get();

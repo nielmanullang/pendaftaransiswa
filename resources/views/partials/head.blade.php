@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <title>
-    Laravel - powered by laravel.com
+    Pendaftaran Siswa
 </title>
 
 <meta http-equiv="X-UA-Compatible"

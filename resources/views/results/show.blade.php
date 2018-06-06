@@ -15,7 +15,7 @@
                         @if(Auth::user()->isAdmin())
                         <tr>
                             <th>@lang('quickadmin.results.fields.user')</th>
-                            <td>{{ $test->user->name or '' }} ({{ $test->user->email or '' }})</td>
+                            <td>{{ $test->user->nisn or '' }} {{ $test->user->namalengkap or '' }}</td>
                         </tr>
                         @endif
                         <tr>
@@ -24,7 +24,7 @@
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.results.fields.result')</th>
-                            <td>{{ $test->result }}/10</td>
+                            <td>{{ $test->result }}/{{ $count }}</td>
                         </tr>
                     </table>
                 <?php $i = 1 ?>

@@ -58,9 +58,9 @@ class RegisterController extends Controller
             'notelpon' => 'required|min:6|unique:users',
             'asalsekolah' => 'required|max:255',
             'nisn' => 'required|min:10|max:10|unique:users',
-            'niksiswa' => 'required|min:16|max:16|unique:users',
-            'nikayah' => 'required|min:16|max:16|unique:users',
-            'nikibu' => 'required|min:16|max:16|unique:users',
+            'niksiswa' => 'required|min:16|max:16',
+            'nikayah' => 'required|min:16|max:16',
+            'nikibu' => 'required|min:16|max:16',
         ]);
     }
 

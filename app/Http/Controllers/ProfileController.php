@@ -9,6 +9,7 @@ use App\Test;
 use App\User;
 use Illuminate\Http\Request;
 use Auth;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class ProfileController extends Controller
 {
@@ -28,5 +29,14 @@ class ProfileController extends Controller
         $user = User::findOrFail($id);
 
         return view('users.index_user', compact('user'));
+    }
+
+    public function generatePDF($id)
+    {
+        $user = User::findOrFail($id);
+        $data = ['title' => 'to '.$user->nisn.' '.$user->namalengkap .' Welcome to SMP Blabla'];
+        $pdf = PDF::loadView('results.myPDF', $data);
+
+        return $pdf->download('blabla.pdf');
     }
 }

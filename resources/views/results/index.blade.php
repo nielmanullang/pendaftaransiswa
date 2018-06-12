@@ -13,7 +13,7 @@
                     <tr>
                         <th>@lang('quickadmin.results.fields.date')</th>
                         <th>Result</th>
-                        <th>&nbsp;</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
 
@@ -23,6 +23,7 @@
                             <td>{{ $results->created_at or '' }}</td>
                             <td>{{ $results->result }}/{{$count}}={{ number_format($results->result  / $count *100,2) }}</td>
                             <td>
+                                <a href="{{ route('generate.pdf',Auth::user()->id) }}" class="btn btn-xs btn-primary">@lang('quickadmin.download_result')</a>
                                 <a href="{{ route('results.show',[$results->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.view')</a>
                             </td>
                         </tr>

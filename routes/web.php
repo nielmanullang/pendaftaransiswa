@@ -45,4 +45,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('results', 'ResultsController');
     Route::post('results_mass_destroy', ['uses' => 'ResultsController@massDestroy', 'as' => 'results.mass_destroy']);
     Route::get('/profile', ['uses' => 'ProfileController@profile', 'as' => 'profile.profile']);
+    Route::get('generate-pdf/{id}', ['uses' => 'ProfileController@generatePDF', 'as' => 'generate.pdf']);
 });

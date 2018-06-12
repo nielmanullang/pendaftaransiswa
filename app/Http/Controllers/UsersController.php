@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUsersRequest;
 use App\Http\Requests\UpdateUsersRequest;
@@ -21,9 +22,13 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        if (Auth::user()->isAdmin()) {
+            $users = User::all()->whereNotIn('id', Auth::id());
 
-        return view('users.index', compact('users'));
+            return view('users.index_admin', compact('users'));
+        }else{
+            return view('users.index_user', compact('users'));
+        }
     }
 
     /**
@@ -36,8 +41,8 @@ class UsersController extends Controller
         $relations = [
             'roles' => \App\Role::get()->pluck('title', 'id')->prepend('Please select', ''),
         ];
-
-        return view('users.create', $relations);
+        return redirect('home');
+        // return view('users.create', $relations);
     }
 
     /**
@@ -81,6 +86,7 @@ class UsersController extends Controller
     public function update(UpdateUsersRequest $request, $id)
     {
         $user = User::findOrFail($id);
+
         $user->update($request->all());
 
         return redirect()->route('users.index');
@@ -95,13 +101,14 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $relations = [
-            'roles' => \App\Role::get()->pluck('title', 'id')->prepend('Please select', ''),
-        ];
+        // $relations = [
+        //     'roles' => \App\Role::get()->pluck('title', 'id')->prepend('Please select', ''),
+        // ];
 
         $user = User::findOrFail($id);
 
-        return view('users.show', compact('user') + $relations);
+        return view('users.show', compact('user'));
+        // return view('users.show', compact('user') + $relations);
     }
 
 

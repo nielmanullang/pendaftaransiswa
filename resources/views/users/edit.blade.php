@@ -13,53 +13,137 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('name', 'Name*', ['class' => 'control-label']) !!}
-                    {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::label('namalengkap', 'Nama Lengkap*', ['class' => 'control-label']) !!}
+                    {!! Form::text('namalengkap', old('namalengkap'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('name'))
+                    @if($errors->has('namalengkap'))
                         <p class="help-block">
-                            {{ $errors->first('name') }}
+                            {{ $errors->first('namalengkap') }}
                         </p>
                     @endif
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('email', 'Email*', ['class' => 'control-label']) !!}
-                    {!! Form::email('email', old('email'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::label('username', 'Username*', ['class' => 'control-label']) !!}
+                    {!! Form::text('username', old('username'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('email'))
+                    @if($errors->has('username'))
                         <p class="help-block">
-                            {{ $errors->first('email') }}
+                            {{ $errors->first('username') }}
                         </p>
                     @endif
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('password', 'Password', ['class' => 'control-label']) !!}
-                    {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::label('jeniskelamin', 'Jenis Kelamin*', ['class' => 'control-label']) !!}
+                    {!! Form::text('jeniskelamin', old('jeniskelamin'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('password'))
+                    @if($errors->has('jeniskelamin'))
                         <p class="help-block">
-                            {{ $errors->first('password') }}
+                            {{ $errors->first('jeniskelamin') }}
                         </p>
                     @endif
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('role_id', 'Role*', ['class' => 'control-label']) !!}
-                    {!! Form::select('role_id', $roles, old('role_id'), ['class' => 'form-control']) !!}
+                    {!! Form::label('tempatlahir', 'Tempat Lahir*', ['class' => 'control-label']) !!}
+                    {!! Form::text('tempatlahir', old('tempatlahir'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('role_id'))
+                    @if($errors->has('tempatlahir'))
                         <p class="help-block">
-                            {{ $errors->first('role_id') }}
+                            {{ $errors->first('tempatlahir') }}
                         </p>
                     @endif
                 </div>
             </div>
-            
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('tanggallahir', 'Tanggal Lahir*', ['class' => 'control-label']) !!}
+                    {!! Form::text('tanggallahir', old('tanggallahir'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('tanggallahir'))
+                        <p class="help-block">
+                            {{ $errors->first('tanggallahir') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('alamat', 'Alamat', ['class' => 'control-label']) !!}
+                    {!! Form::text('alamat', old('alamat'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('alamat'))
+                        <p class="help-block">
+                            {{ $errors->first('alamat') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('notelpon', 'No. Telpon', ['class' => 'control-label']) !!}
+                    {!! Form::text('notelpon', old('notelpon'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('notelpon'))
+                        <p class="help-block">
+                            {{ $errors->first('notelpon') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('asalsekolah', 'Asal Sekolah', ['class' => 'control-label']) !!}
+                    {!! Form::text('asalsekolah', old('asalsekolah'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('asalsekolah'))
+                        <p class="help-block">
+                            {{ $errors->first('asalsekolah') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('niksiswa', 'NIK Siswa', ['class' => 'control-label']) !!}
+                    {!! Form::text('niksiswa', old('asalsekolah'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('niksiswa'))
+                        <p class="help-block">
+                            {{ $errors->first('niksiswa') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('nikayah', 'NIK Ayah', ['class' => 'control-label']) !!}
+                    {!! Form::text('nikayah', old('asalsekolah'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('nikayah'))
+                        <p class="help-block">
+                            {{ $errors->first('nikayah') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('nikibu', 'NIK Ibu', ['class' => 'control-label']) !!}
+                    {!! Form::text('nikibu', old('asalsekolah'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('nikibu'))
+                        <p class="help-block">
+                            {{ $errors->first('nikibu') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+
         </div>
     </div>
 

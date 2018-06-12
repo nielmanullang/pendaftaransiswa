@@ -18,7 +18,7 @@ class Controller extends BaseController
      * @param int $length
      * @return string
      */
-    public function generateRandomString($length = 3) {
+    public function generateRandomString($length = 8) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
         $charactersLength = strlen($characters);
         $randomString = '';

@@ -19,9 +19,19 @@
                             </ul>
                         </div>
                     @endif
-                    Silahlan login dengan:<br/>
-                    No. Telpon: {{$user->notelpon}}<br/>
-                    Password: {{$user->nisn}}{{$user->random_string}}<br/>
+                    Harap simpan akun login dibawan ini dan silahlan login dengan menggunakan akun dibawah ini:<br/>
+                    <table>
+                        <tr>
+                            <td width="50%">NISN</td>
+                            <td width="10%">:</td>
+                            <td>{{$user->nisn}}</td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td>:</td>
+                            <td>{{$user->random_string}}</td>
+                        </tr>
+                    </table>
                     <a href="/login/" class="btn btn-primary">Login</a>
                 </div>
             </div>

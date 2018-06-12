@@ -23,12 +23,22 @@ class UpdateUsersRequest extends FormRequest
     public function rules()
     {
         return [
+            'namalengkap' => 'required',
+            'username' => 'required',
+            'jeniskelamin' => 'required',
+            'tempatlahir' => 'required',
+            'tanggallahir' => 'required',
+            'alamat' => 'required',
+            'notelpon' => 'required',
+            'asalsekolah' => 'required',
+            'niksiswa' => 'required',
+            'nikayah' => 'required',
+            'nikibu' => 'required',
+            // 'nam' => 'required',
+            // 'email' => 'required|email|unique:users,email,'.$this->route('user'),
             
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,'.$this->route('user'),
-            
-            'role_id' => 'required',
-            'role_id' => 'required',
+            // 'role_id' => 'required',
+            // 'role_id' => 'required',
         ];
     }
 }

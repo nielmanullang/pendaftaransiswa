@@ -7,6 +7,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
+                <form method="get" action="/home/">
+                    <button type="submit" class="btn btn-success">Back to Home</button>
+                </form>
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 

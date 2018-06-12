@@ -3,10 +3,6 @@
 @section('content')
     <h3 class="page-title">@lang('quickadmin.users.title')</h3>
 
-    <p>
-        <a href="{{ route('users.create') }}" class="btn btn-success">@lang('quickadmin.add_new')</a>
-    </p>
-
     <div class="panel panel-default">
         <div class="panel-heading">
             @lang('quickadmin.list')
@@ -17,9 +13,10 @@
                 <thead>
                     <tr>
                         <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
-                        <th>@lang('quickadmin.users.fields.name')</th>
-                        <th>@lang('quickadmin.users.fields.email')</th>
-                        <th>@lang('quickadmin.users.fields.role')</th>
+                        <th>@lang('quickadmin.users.fields.nisn')</th>
+                        <th>@lang('quickadmin.users.fields.namalengkap')</th>
+                        <th>@lang('quickadmin.users.fields.asalsekolah')</th>
+                        <th>@lang('quickadmin.users.fields.niksiswa')</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
@@ -29,9 +26,10 @@
                         @foreach ($users as $user)
                             <tr data-entry-id="{{ $user->id }}">
                                 <td></td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->role->title or '' }}</td>
+                                <td>{{ $user->nisn }}</td>
+                                <td>{{ $user->namalengkap }}</td>
+                                <td>{{ $user->asalsekolah }}</td>
+                                <td>{{ $user->niksiswa }}</td>
                                 <td>
                                     <a href="{{ route('users.show',[$user->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.view')</a>
                                     <a href="{{ route('users.edit',[$user->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.edit')</a>

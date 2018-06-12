@@ -73,7 +73,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $generateRandomString = $this->generateRandomString();
-        $password = bcrypt($data['nisn'].''.$generateRandomString);
+        $password = bcrypt($generateRandomString);
         return User::create([
             'namalengkap'     => $data['namalengkap'],
             'username'     => $data['username'],
@@ -82,6 +82,7 @@ class RegisterController extends Controller
             'tanggallahir'    => $data['tanggallahir'],
             'alamat'    => $data['alamat'],
             'notelpon'    => $data['notelpon'],
+            'asalsekolah'    => $data['asalsekolah'],
             'nisn'    => $data['nisn'],
             'niksiswa'    => $data['niksiswa'],
             'nikayah'    => $data['nikayah'],

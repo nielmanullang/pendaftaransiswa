@@ -10,7 +10,7 @@
                 <form method="get" action="/home/">
                     <button type="submit" class="btn btn-success">Back to Home</button>
                 </form>
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('namalengkap') ? ' has-error' : '' }}">
@@ -185,6 +185,32 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('ijazah') ? ' has-error' : '' }}">
+                            <label for="ijazah" class="col-md-4 control-label">Ijazah</label>
+
+                            <div class="col-md-6">
+                                <input id="ijazah" type="file" class="form-control" name="ijazah" value="{{ old('ijazah') }}" accept="image/x-png,image/gif,image/jpeg" required>
+
+                                @if ($errors->has('ijazah'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('ijazah') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('kartukeluarga') ? ' has-error' : '' }}">
+                            <label for="kartukeluarga" class="col-md-4 control-label">Kartu Keluarga</label>
+
+                            <div class="col-md-6">
+                                <input id="kartukeluarga" type="file" class="form-control" name="kartukeluarga" value="{{ old('kartukeluarga') }}" accept="image/x-png,image/gif,image/jpeg" required>
+
+                                @if ($errors->has('kartukeluarga'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('kartukeluarga') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

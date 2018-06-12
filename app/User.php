@@ -21,7 +21,7 @@ class User extends Authenticatable
 {
     use SoftDeletes, Notifiable;
 
-    protected $fillable = ['namalengkap', 'username', 'jeniskelamin', 'tempatlahir', 'tanggallahir', 'alamat', 'notelpon', 'random_string', 'nisn', 'asalsekolah', 'niksiswa', 'nikayah', 'nikibu', 'password', 'remember_token', 'role_id'];
+    protected $fillable = ['namalengkap', 'username', 'jeniskelamin', 'tempatlahir', 'tanggallahir', 'alamat', 'notelpon', 'random_string', 'nisn', 'asalsekolah', 'niksiswa', 'nikayah', 'nikibu', 'password', 'remember_token', 'role_id', 'ijazah', 'kartukeluarga'];
 
     public static function boot()
     {

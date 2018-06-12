@@ -60,7 +60,7 @@ class RegisterController extends Controller
             'nisn' => 'required|min:10|max:10|unique:users',
             'niksiswa' => 'required|min:16|max:16',
             'nikayah' => 'required|min:16|max:16',
-            'nikibu' => 'required|min:16|max:16',
+            'nikibu' => 'required|min:16|max:16'
         ]);
     }
 
@@ -71,7 +71,7 @@ class RegisterController extends Controller
      * @return User
      */
     protected function create(array $data)
-    {
+    {   
         $generateRandomString = $this->generateRandomString();
         $password = bcrypt($generateRandomString);
         return User::create([
@@ -89,6 +89,8 @@ class RegisterController extends Controller
             'nikibu'    => $data['nikibu'],
             'password' => $password,
             'random_string' => $generateRandomString,
+            'ijazah' => $data['ijazah'],
+            'kartukeluarga' => $data['kartukeluarga'],
         ]);
     }
 
@@ -98,9 +100,41 @@ class RegisterController extends Controller
     }
 
     public function register(Request $request)
-    {   
+    {    
+        if ($request->hasFile('kartukeluarga')) {
+            $image = $request->file('kartukeluarga');
+            $name = str_slug($request->nisn.'_kartukeluarga').'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/uploads/kartukeluarga');
+            $imagePath = $destinationPath. "/".  $name;
+            $image->move($destinationPath, $name);
+            $kartukeluarga = $name;
+        }
+        if ($request->hasFile('ijazah')) {
+            $image = $request->file('ijazah');
+            $name = str_slug($request->nisn.'_ijazah').'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/uploads/ijazah');
+            $imagePath = $destinationPath. "/".  $name;
+            $image->move($destinationPath, $name);
+            $ijazah = $name;
+        }
+        
+        // var_dump('end'); die();
         $this->validator($request->all())->validate();
-        $user = $this->create($request->all());
+        $input['kartukeluarga'] = $kartukeluarga;
+        $input['ijazah'] = $ijazah;
+        $input['namalengkap'] = $request->namalengkap;
+        $input['username'] = $request->username;
+        $input['jeniskelamin'] = $request->jeniskelamin;
+        $input['tanggallahir'] = $request->tanggallahir;
+        $input['tempatlahir'] = $request->tempatlahir;
+        $input['alamat'] = $request->alamat;
+        $input['notelpon'] = $request->notelpon;
+        $input['asalsekolah'] = $request->asalsekolah;
+        $input['nisn'] = $request->nisn;
+        $input['niksiswa'] = $request->niksiswa;
+        $input['nikayah'] = $request->nikayah;
+        $input['nikibu'] = $request->nikibu;
+        $user = $this->create($input);
 
         // return view('auth.success_register');
         return view('auth.success_register',['user'=>$user]);

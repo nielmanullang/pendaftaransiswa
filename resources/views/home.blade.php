@@ -4,7 +4,11 @@
     <div class="row">
         <div class="col-md-10">
             <div class="panel panel-default">
-                <div class="panel-heading">Selamat datang.</div>
+                <div class="panel-heading">
+                    @if(Auth::user() != null)
+                        Selamat datang. {{Auth::user()->nisn}} {{Auth::user()->namalengkap}}
+                    @endif
+                    </div>
 
                 <div class="panel-body">
                     <div class="row">

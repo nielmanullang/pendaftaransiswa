@@ -22,13 +22,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->isAdmin()) {
-            $users = User::all()->whereNotIn('id', Auth::id());
+        $users = User::all()->whereNotIn('id', Auth::id());
 
-            return view('users.index_admin', compact('users'));
-        }else{
-            return view('users.index_user', compact('users'));
-        }
+        return view('users.index_admin', compact('users'));
     }
 
     /**

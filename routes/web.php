@@ -27,7 +27,7 @@ $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.password.reset');
 
 Route::group(['middleware' => 'web'], function () {
-    Route::get('/home', 'HomeController@index');
+    Route::get('/home', ['uses' => 'HomeController@index', 'as' => 'home']);
 });
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('tests', 'TestsController');
@@ -44,4 +44,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('questions_options_mass_destroy', ['uses' => 'QuestionsOptionsController@massDestroy', 'as' => 'questions_options.mass_destroy']);
     Route::resource('results', 'ResultsController');
     Route::post('results_mass_destroy', ['uses' => 'ResultsController@massDestroy', 'as' => 'results.mass_destroy']);
+    Route::get('/profile', ['uses' => 'ProfileController@profile', 'as' => 'profile.profile']);
 });

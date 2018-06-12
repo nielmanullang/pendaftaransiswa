@@ -64,6 +64,14 @@
                             <th>@lang('quickadmin.users.fields.nikibu')</th>
                             <td>{{ $user->nikibu }}</td>
                         </tr>
+                        <tr>
+                            <th>@lang('quickadmin.users.fields.kartukeluarga')</th>
+                            <td><img src="/uploads/kartukeluarga/{{ $user->kartukeluarga }}" height="50px" width="50px" /></td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.users.fields.ijazah')</th>
+                            <td><img src="/uploads/ijazah/{{ $user->ijazah }}" height="50px" width="50px" /></td>
+                        </tr>
                     </table>
                 </div>
             </div>

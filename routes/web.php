@@ -28,6 +28,8 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('auth.
 
 Route::group(['middleware' => 'web'], function () {
     Route::get('/home', ['uses' => 'HomeController@index', 'as' => 'home']);
+    Route::resource('artikels', 'ArtikelsController');
+    Route::post('artikels-users_mass_destroy', ['uses' => 'UsersController@massDestroy', 'as' => 'artikels.mass_destroy']);
 });
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('tests', 'TestsController');
@@ -47,3 +49,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile', ['uses' => 'ProfileController@profile', 'as' => 'profile.profile']);
     Route::get('generate-pdf/{id}', ['uses' => 'ProfileController@generatePDF', 'as' => 'generate.pdf']);
 });
+$this->get('tentang-kami', 'HomeController@tentangkami');
+$this->get('visi-misi', 'HomeController@visimisi');
+$this->get('artikel', 'HomeController@artikel');

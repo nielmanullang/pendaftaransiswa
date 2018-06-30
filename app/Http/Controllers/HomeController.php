@@ -7,6 +7,7 @@ use App\Question;
 use App\Result;
 use App\Test;
 use App\User;
+use App\Article;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -32,6 +33,23 @@ class HomeController extends Controller
         $users = User::whereNull('role_id')->count();
         $quizzes = Test::count();
         $average = Test::avg('result');
-        return view('home', compact('questions', 'users', 'quizzes', 'average'));
+        $articles = Article::orderBy('id', 'desc')->limit('3')->get();
+        return view('home', compact('questions', 'users', 'quizzes', 'average', 'articles'));
+    }
+
+    public function tentangkami()
+    {
+        return view('tentangkami');
+    }
+
+    public function visimisi()
+    {
+        return view('visimisi');
+    }
+
+    public function artikel()
+    {
+        $data = Article::get();
+        return view('data', compact('data'));
     }
 }

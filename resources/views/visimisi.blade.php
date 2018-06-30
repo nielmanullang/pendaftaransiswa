@@ -1,11 +1,18 @@
 <head>
-<title>YAYASAN DARUNNA’IM YAPIA</title>
+<title>Visi dan Misi</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" type="text/css" href="assets/font/font.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="assets/css/jquery.bxslider.css" media="screen" />
+
+<style>
+    p.ex1 {
+        border: 0px solid red; 
+        padding-bottom: 10px;
+    }
+</style>
 
 </head>
 <body>
@@ -24,7 +31,7 @@
                 <li><a href="#">Ekstrakulikuler</a></li>
             </ul>
           </li>
-          <li><a href="/register">Pendaftaran</a>
+          <li><a href="#">Pendaftaran</a>
             <ul>
                 <li><a href="informasi_pendaftaran.html">Informasi Pendaftaran</a></li>
                 <li><a href="/register">Formulir Pendaftaran</a></li>
@@ -32,22 +39,17 @@
           </li>
           <li><a href="#">Profil</a>
             <ul>
-              <li><a href="/tentang-kami">Tentang Kami</a></li>
-              <li><a href="/visi-misi">Visi dan Misi</a></li>
+              <li><a href="tentangkami.html">Tentang Kami</a></li>
+              <li><a href="visi_misi.html">Visi dan Misi</a></li>
             </ul>
           </li>
-          @if(Auth::user() != null)
-          <li>            
-              <a href="/tests">Kuis</a>
-          </li>
-          @endif
-          
           <li>
               @if(Auth::user() != null)
                   <a href="#logout" onclick="$('#logout').submit();">Keluar</a>
               @else
                   <a href="/login" onclick="$('login').submit();">Masuk</a>
               @endif
+          </li>
           </li>
         </ul>
       </div>
@@ -61,52 +63,27 @@
       </div>
     </div>
     <div class="content_area">
-      <div class="main_content floatleft">
-        <div class="left_coloum floatleft">
-          <div class="single_left_coloum_wrapper">
-            <h2 class="title">Artikel Terbaru</h2>
-            @foreach($articles as $article)
-            <div class="single_left_coloum floatleft"> <img src="images/{{ $article->image }}" alt="" />
-              <h3>{{ $article->title }}</h3>
-              <p>{!! substr($article->content, 0, 140) !!}</p>
-              <a class="readmore" href="/artikels/{{ $article->id }}">read more</a> </div>
-            @endforeach
-          </div>
-        </div>
-        <div class="right_coloum floatright">
-          <div class="single_right_coloum">
-            <h2 class="title">Prestasi</h2>
-            <ul>
-              <li>
-                <div class="single_cat_right_content">
-                  <p class="single_cat_right_content_meta">Tahun 2012</p>
-                  <h3>Juara 1 Lomba pidato Bahasa Indonesia tingkat KKM 1 MTsN Parung</h3>
-                </div>
-              </li>
-              <li>
-                  <div class="single_cat_right_content">
-                    <p class="single_cat_right_content_meta">Tahun 2015</p>
-                    <h3>Juara 1 Lomba kaligrafi tingkat Yayasan</h3>
-                  </div>
-                </li>
-                <li>
-                    <div class="single_cat_right_content">
-                      <p class="single_cat_right_content_meta">Tahun 2015</p>
-                      <h3>Juara 2 Lomba cerdas cermat tingkat Yayasan</h3>
-                    </div>
-                </li>
-            </ul>
-          </div> 
-        </div>
-      </div>
-      <div class="sidebar floatright">
-        <div class="single_sidebar">
-          <div class="popular">
-            <h2 class="title">Sertifikat Akreditasi</h2>
-            Gambar sertifikat akreditasi here...
-          </div>
-        </div>
-    </div>
+        <h2>Visi dan Misi</h2>
+        <p>Penulis &nbsp; <b>Pengelola</b> - 22 Juni 2018 </p>
+    </br>
+  </br>
+  <div>
+  <font size="3">
+    <p><h2>Visi :</h2></p>
+    <p class="ex1">&nbsp;&nbsp;&nbsp;1. Terwujudnya Lembaga Pendidikan Yang Tangguh Dalam Imtaq Unggul Dalam Iptek Dan Kreatif Dalam Kemandirian</p>
+
+    <p><h2>Misi :</h2></p>
+    <p class="ex1">&nbsp;&nbsp;&nbsp;1. Menumbuhkan dan mewujudkan penghayatan dan pengalaman terhadap ajaran agama islam.</p>
+    <p class="ex1">&nbsp;&nbsp;&nbsp;2.	Menanamkan keimanan,ketaqwaan dan akhlaqul karimah melalui pemberdayaan mata pelajaran agama.</p>
+    <p class="ex1">&nbsp;&nbsp;&nbsp;3. Mewujudkan pembelajaran sesuai dengan standar nasional pendidikan.</p>
+    <p class="ex1">&nbsp;&nbsp;&nbsp;4.	Mewujudkan pembelajaran yang memanfaatkan teknologi.</p>
+    <p class="ex1">&nbsp;&nbsp;&nbsp;5.	Melaksanakan pembelajaran yang aktif, inovatif, kreatif, efektif dan menyenangkan bagi semua guru dan siswa</p>
+    <p class="ex1">&nbsp;&nbsp;&nbsp;6. Mendorong siswa mengenali potensi dirinya untuk meningkatkan motivasi berprestasi</p>
+    <p class="ex1">&nbsp;&nbsp;&nbsp;7. Menumbuhkan semangat berprestasi dalam berkarya.</p>
+    <p class="ex1">&nbsp;&nbsp;&nbsp;8. Meningkatkatkan keunggulan dalam life skill</p>
+
+    </br></br>
+  </div>  
     <div class="footer_top_area">
         <center><a href="#"><img src="images/Logo_Footer.png" alt="" /></a></center>
         <br>
@@ -118,8 +95,8 @@
       <div class="footer_menu">
         <center>
         <ul id="f_menu">
-          <li><a href="/">Beranda</a></li>
-          <li><a href="/artikel">Berita</a></li>
+          <li><a href="#">Beranda</a></li>
+          <li><a href="#">Berita</a></li>
           <li><a href="/register">Pendaftaran</a></li>
           <li><a href="#">Profil</a></li>
            <li>
@@ -159,6 +136,3 @@ $('.bxslider').bxSlider({
 });
 </script>
 </body>
-{!! Form::open(['route' => 'auth.logout', 'style' => 'display:none;', 'id' => 'logout']) !!}
-<button type="submit">Logout</button>
-{!! Form::close() !!}

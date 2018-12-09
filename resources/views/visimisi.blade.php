@@ -28,19 +28,19 @@
           <li><a href="/">Beranda</a></li>
           <li><a href="#">Berita</a>
             <ul>
-                <li><a href="#">Ekstrakulikuler</a></li>
+              <li><a href="/ekstrakulikuler">Ekstrakulikuler</a></li>
             </ul>
           </li>
           <li><a href="#">Pendaftaran</a>
             <ul>
-                <li><a href="informasi_pendaftaran.html">Informasi Pendaftaran</a></li>
+                <li><a href="/informasi-pendaftaran">Informasi Pendaftaran</a></li>
                 <li><a href="/register">Formulir Pendaftaran</a></li>
             </ul>
           </li>
           <li><a href="#">Profil</a>
             <ul>
-              <li><a href="tentangkami.html">Tentang Kami</a></li>
-              <li><a href="visi_misi.html">Visi dan Misi</a></li>
+              <li><a href="/tentang-kami">Tentang Kami</a></li>
+              <li><a href="/visi-misi">Visi dan Misi</a></li>
             </ul>
           </li>
           <li>
@@ -56,9 +56,9 @@
     <div class="slider_area">
       <div class="slider">
         <ul class="bxslider">
-          <li><img src="images/1.jpg" alt="" title="Slider caption text" /></li>
-          <li><img src="images/2.jpg" alt="" title="Slider caption text" /></li>
-          <li><img src="images/3.jpg" alt="" title="Slider caption text" /></li>
+          <li><img src="quickadmin/images/home1.jpg" alt="" title="Slider caption text" /></li>
+          <li><img src="quickadmin/images/home2.jpg" alt="" title="Slider caption text" /></li>
+          <li><img src="quickadmin/images/home3.jpg" alt="" title="Slider caption text" /></li>
         </ul>
       </div>
     </div>

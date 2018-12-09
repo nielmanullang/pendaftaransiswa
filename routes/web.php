@@ -52,3 +52,5 @@ Route::group(['middleware' => 'auth'], function () {
 $this->get('tentang-kami', 'HomeController@tentangkami');
 $this->get('visi-misi', 'HomeController@visimisi');
 $this->get('artikel', 'HomeController@artikel');
+$this->get('informasi-pendaftaran', 'HomeController@informasipendaftaran');
+$this->get('ekstrakulikuler', 'HomeController@ekstrakulikuler');

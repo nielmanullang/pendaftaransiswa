@@ -21,7 +21,7 @@
           <li><a href="/">Beranda</a></li>
           <li><a href="#">Berita</a>
             <ul>
-                <li><a href="/ekstrakulikuler">Ekstrakulikuler</a></li>
+                <li><a href="/ekstrakulikuler">Ekstrakulikuler</a></li> 
             </ul>
           </li>
           <li><a href="/register">Pendaftaran</a>
@@ -61,52 +61,59 @@
       </div>
     </div>
     <div class="content_area">
-      <div class="main_content floatleft">
-        <div class="left_coloum floatleft">
-          <div class="single_left_coloum_wrapper">
-            <h2 class="title">Artikel Terbaru</h2>
-            @foreach($articles as $article)
-            <div class="single_left_coloum floatleft"> <img src="images/{{ $article->image }}" alt="" />
-              <h3>{{ $article->title }}</h3>
-              <p>{!! substr($article->content, 0, 140) !!}</p>
-              <a class="readmore" href="/artikels/{{ $article->id }}">read more</a> </div>
-            @endforeach
+        <div class="main_content floatleft">
+          <div class="left_coloum floatleft">
+            <div class="single_left_coloum_wrapper">
+              <h2 class="title">Ekstrakulikuler</h2>
+              <div class="single_left_coloum floatleft"> <img src="quickadmin/images/padus.jpg" alt="" />
+                <h3>Paduan Suara (PADUS)</h3>
+                <p>Parung-Bogor dalam rangka menyambut HUT RI yang Ke - 71. Merdekaaaaa!!!</p>
+                <a class="readmore" href="#"></a> </div>
+              <div class="single_left_coloum floatleft"> <img src="quickadmin/images/pramuka.jpg" alt="" />
+                <h3>Pramuka</h3>
+                <p>SMP PGRI 5 Bogor pada Lomba MAN 2 Bogor 2015 ( Alhamdulillah Generasi baru, Kelas 7 dan 8 melaksanakan kegiatan perdana dan meraih prestasi Juara 2)</p>
+                <a class="readmore" href="#"></a> </div>
+              <div class="single_left_coloum floatleft"> <img src="quickadmin/images/futsal.jpg" alt="" />
+                <h3>Futsal</h3>
+                <p>CACO Open Tournament Futsal ditutup dengan sambutan perwakilan SMKN 13, dan penyerahan hadiah kepada para pemenang.</p>
+                <a class="readmore" href="#"></a> </div>
+            </div>
           </div>
-        </div>
-        <div class="right_coloum floatright">
-          <div class="single_right_coloum">
-            <h2 class="title">Prestasi</h2>
-            <ul>
-              <li>
-                <div class="single_cat_right_content">
-                  <p class="single_cat_right_content_meta">Tahun 2012</p>
-                  <h3>Juara 1 Lomba pidato Bahasa Indonesia tingkat KKM 1 MTsN Parung</h3>
-                </div>
-              </li>
-              <li>
+          <div class="right_coloum floatright">
+            <div class="single_right_coloum">
+              <h2 class="title">Prestasi</h2>
+              <ul>
+                <li>
                   <div class="single_cat_right_content">
-                    <p class="single_cat_right_content_meta">Tahun 2015</p>
-                    <h3>Juara 1 Lomba kaligrafi tingkat Yayasan</h3>
+                    <p class="single_cat_right_content_meta">Tahun 2012</p>
+                    <h3>Juara 1 Lomba pidato Bahasa Indonesia tingkat KKM 1 MTsN Parung</h3>
                   </div>
                 </li>
                 <li>
                     <div class="single_cat_right_content">
                       <p class="single_cat_right_content_meta">Tahun 2015</p>
-                      <h3>Juara 2 Lomba cerdas cermat tingkat Yayasan</h3>
+                      <h3>Juara 1 Lomba kaligrafi tingkat Yayasan</h3>
                     </div>
-                </li>
-            </ul>
-          </div> 
-        </div>
-      </div>
-      <div class="sidebar floatright">
-        <div class="single_sidebar">
-          <div class="popular">
-            <h2 class="title">Sertifikat Akreditasi</h2>
-            Gambar sertifikat akreditasi here...
+                  </li>
+                  <li>
+                      <div class="single_cat_right_content">
+                        <p class="single_cat_right_content_meta">Tahun 2015</p>
+                        <h3>Juara 2 Lomba cerdas cermat tingkat Yayasan</h3>
+                      </div>
+                  </li>
+              </ul>
+            </div> 
           </div>
         </div>
-    </div>
+        <div class="sidebar floatright">
+          <div class="single_sidebar">
+            <div class="popular">
+              <h2 class="title">Sertifikat Akreditasi</h2>
+              Gambar sertifikat akreditasi here...
+            </div>
+          </div>
+      </div>
+    </div>  
     <div class="footer_top_area">
         <center><a href="#"><img src="images/Logo_Footer.png" alt="" /></a></center>
         <br>
@@ -118,17 +125,11 @@
       <div class="footer_menu">
         <center>
         <ul id="f_menu">
-          <li><a href="/">Beranda</a></li>
-          <li><a href="/artikel">Berita</a></li>
-          <li><a href="/register">Pendaftaran</a></li>
+          <li><a href="#">Beranda</a></li>
+          <li><a href="#">Berita</a></li>
+          <li><a href="#">Pendaftaran</a></li>
           <li><a href="#">Profil</a></li>
-           <li>
-              @if(Auth::user() != null)
-                  <a href="#logout" onclick="$('#logout').submit();">Keluar</a>
-              @else
-                  <a href="/login" onclick="$('login').submit();">Masuk</a>
-              @endif
-          </li>
+          <li><a href="#">Masuk</a></li>
         </ul>
         </center>
       </div>
@@ -159,6 +160,4 @@ $('.bxslider').bxSlider({
 });
 </script>
 </body>
-{!! Form::open(['route' => 'auth.logout', 'style' => 'display:none;', 'id' => 'logout']) !!}
-<button type="submit">Logout</button>
-{!! Form::close() !!}
+</html>

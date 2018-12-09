@@ -52,4 +52,14 @@ class HomeController extends Controller
         $data = Article::get();
         return view('data', compact('data'));
     }
+
+    public function informasipendaftaran()
+    {
+        return view('informasipendaftaran');
+    }
+
+    public function ekstrakulikuler()
+    {
+        return view('ekstrakulikuler');
+    }
 }

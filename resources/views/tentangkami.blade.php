@@ -1,33 +1,40 @@
 <head>
-  <title>YAYASAN DARUNNA’IM YAPIA</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" type="text/css" href="assets/font/font.css" />
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="assets/css/jquery.bxslider.css" media="screen" />
+<title>Visi dan Misi</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" type="text/css" href="assets/font/font.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="assets/css/responsive.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="assets/css/jquery.bxslider.css" media="screen" />
+
+<style>
+    p.ex1 {
+        border: 0px solid red; 
+        padding-bottom: 10px;
+    }
+</style>
 
 </head>
 <body>
-  <div class="body_wrapper">
-    <div class="center">
-      <div class="header_area">
-        <center><a href="#"><img src="images/Logo_Fixed.png" alt="" /></a></center>
-        <center><b><h2>YAYASAN DARUNNA’IM YAPIA</h2></b></center>
-      </div>
-      <br>
-      <div class="main_menu_area">
+<div class="body_wrapper">
+  <div class="center">
+    <div class="header_area">
+      <center><a href="#"><img src="images/Logo_Fixed.png" alt="" /></a></center>
+      <center><b><h2>YAYASAN DARUNNA’IM YAPIA</h2></b></center>
+    </div>
+    <br>
+    <div class="main_menu_area">
         <ul id="nav">
           <li><a href="/">Beranda</a></li>
           <li><a href="#">Berita</a>
             <ul>
-              <li><a href="#">Ekstrakulikuler</a></li>
+              <li><a href="/ekstrakulikuler">Ekstrakulikuler</a></li>
             </ul>
           </li>
           <li><a href="#">Pendaftaran</a>
             <ul>
-              <li><a href="informasi_pendaftaran.html">Informasi Pendaftaran</a></li>
-              <li><a href="/register">Formulir Pendaftaran</a></li>
+                <li><a href="informasi_pendaftaran.html">Informasi Pendaftaran</a></li>
+                <li><a href="/register">Formulir Pendaftaran</a></li>
             </ul>
           </li>
           <li><a href="#">Profil</a>
@@ -37,20 +44,21 @@
             </ul>
           </li>
           <li>
-            @if(Auth::user() != null)
-            <a href="#logout" onclick="$('#logout').submit();">Keluar</a>
-            @else
-            <a href="/login" onclick="$('login').submit();">Masuk</a>
-            @endif
+              @if(Auth::user() != null)
+                  <a href="#logout" onclick="$('#logout').submit();">Keluar</a>
+              @else
+                  <a href="/login" onclick="$('login').submit();">Masuk</a>
+              @endif
+          </li>
           </li>
         </ul>
       </div>
       <div class="slider_area">
         <div class="slider">
           <ul class="bxslider">
-            <li><img src="images/1.jpg" alt="" title="Slider caption text" /></li>
-            <li><img src="images/2.jpg" alt="" title="Slider caption text" /></li>
-            <li><img src="images/3.jpg" alt="" title="Slider caption text" /></li>
+            <li><img src="quickadmin/images/home1.jpg" alt="" title="Slider caption text" /></li>
+            <li><img src="quickadmin/images/home2.jpg" alt="" title="Slider caption text" /></li>
+            <li><img src="quickadmin/images/home3.jpg" alt="" title="Slider caption text" /></li>
           </ul>
         </div>
       </div>

@@ -125,11 +125,17 @@
       <div class="footer_menu">
         <center>
         <ul id="f_menu">
-          <li><a href="#">Beranda</a></li>
-          <li><a href="#">Berita</a></li>
-          <li><a href="#">Pendaftaran</a></li>
+          <li><a href="/">Beranda</a></li>
+          <li><a href="/artikel">Berita</a></li>
+          <li><a href="/register">Pendaftaran</a></li>
           <li><a href="#">Profil</a></li>
-          <li><a href="#">Masuk</a></li>
+           <li>
+              @if(Auth::user() != null)
+                  <a href="#logout" onclick="$('#logout').submit();">Keluar</a>
+              @else
+                  <a href="/login" onclick="$('login').submit();">Masuk</a>
+              @endif
+          </li>
         </ul>
         </center>
       </div>
@@ -160,4 +166,6 @@ $('.bxslider').bxSlider({
 });
 </script>
 </body>
-</html>
+{!! Form::open(['route' => 'auth.logout', 'style' => 'display:none;', 'id' => 'logout']) !!}
+<button type="submit">Logout</button>
+{!! Form::close() !!}
